@@ -1,6 +1,8 @@
 package ornek.uygulama.com.sinemaotomation.objects;
 
-public class Filmler {
+import java.io.Serializable;
+
+public class Filmler implements Serializable {
     private int film_id;
     private String film_adi;
     private String film_resim;

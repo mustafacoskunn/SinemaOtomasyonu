@@ -18,6 +18,8 @@ import java.util.List;
 
 import ornek.uygulama.com.sinemaotomation.R;
 import ornek.uygulama.com.sinemaotomation.objects.Filmler;
+import ornek.uygulama.com.sinemaotomation.objects.Seans;
+import ornek.uygulama.com.sinemaotomation.seansActivity;
 
 /**
  * Created by kasimadalan on 4.05.2018.
@@ -56,13 +58,15 @@ public class FilmlerAdapter extends RecyclerView.Adapter<FilmlerAdapter.CardTasa
 
         holder.textViewFilmAd.setText(film.getFilm_adi());
 
-        System.out.println("resim:"+film.getFilm_resim());
         Picasso.with(mContext)
                 .load(film.getFilm_resim())
                 .into(holder.ımageViewFilmResim);
         holder.film_card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent=new Intent(mContext, seansActivity.class);
+                intent.putExtra("filmbilgi",film);
+                mContext.startActivity(intent);
 
 
 
