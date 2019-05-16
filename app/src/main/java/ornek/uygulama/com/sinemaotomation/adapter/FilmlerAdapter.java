@@ -18,7 +18,6 @@ import java.util.List;
 
 import ornek.uygulama.com.sinemaotomation.R;
 import ornek.uygulama.com.sinemaotomation.objects.Filmler;
-import ornek.uygulama.com.sinemaotomation.objects.Seans;
 import ornek.uygulama.com.sinemaotomation.seansActivity;
 
 /**
@@ -40,7 +39,7 @@ public class FilmlerAdapter extends RecyclerView.Adapter<FilmlerAdapter.CardTasa
         private ImageView ımageViewFilmResim;
         public CardTasarimTutucu(View itemView) {
             super(itemView);
-            film_card = itemView.findViewById(R.id.film_card);
+            film_card = itemView.findViewById(R.id.cardView);
             textViewFilmAd = itemView.findViewById(R.id.textViewFilmAd);
             ımageViewFilmResim = itemView.findViewById(R.id.imageViewFilmResim);
         }

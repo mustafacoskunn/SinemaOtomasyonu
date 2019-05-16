@@ -39,11 +39,13 @@ public class seansAdapter extends RecyclerView.Adapter<seansAdapter.CardTasarimT
     public class CardTasarimTutucu extends RecyclerView.ViewHolder{
         private CardView cardView;
         private Button button;
+        private TextView salonAdi;
 
         public CardTasarimTutucu(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardView);
             button = itemView.findViewById(R.id.button);
+            salonAdi=itemView.findViewById(R.id.salonAdi);
 
         }
     }
@@ -59,6 +61,7 @@ public class seansAdapter extends RecyclerView.Adapter<seansAdapter.CardTasarimT
         final Seans seans = seansListe.get(position);
 
         holder.button.setText(seans.getSeans_saati());
+        holder.salonAdi.setText(seans.getSalon_adi());
 
 
 

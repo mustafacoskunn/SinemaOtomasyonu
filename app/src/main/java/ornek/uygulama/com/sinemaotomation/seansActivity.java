@@ -37,7 +37,7 @@ public class seansActivity extends AppCompatActivity {
         filmler= (Filmler) getIntent().getSerializableExtra("filmbilgi");
 
         recyclerView.setHasFixedSize(true); //ekran döndürmede bozulma
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
         veritabaniKopyala();
 
         vt =  new sinemaDao(this);
