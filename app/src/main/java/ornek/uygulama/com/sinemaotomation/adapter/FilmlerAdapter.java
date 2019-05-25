@@ -20,9 +20,6 @@ import ornek.uygulama.com.sinemaotomation.R;
 import ornek.uygulama.com.sinemaotomation.objects.Filmler;
 import ornek.uygulama.com.sinemaotomation.seansActivity;
 
-/**
- * Created by kasimadalan on 4.05.2018.
- */
 
 public class FilmlerAdapter extends RecyclerView.Adapter<FilmlerAdapter.CardTasarimTutucu> {
     private Context mContext;

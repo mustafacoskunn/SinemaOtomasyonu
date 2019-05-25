@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import ornek.uygulama.com.sinemaotomation.objects.Film_seans;
 import ornek.uygulama.com.sinemaotomation.objects.Filmler;
+import ornek.uygulama.com.sinemaotomation.objects.Koltuk;
 import ornek.uygulama.com.sinemaotomation.objects.Seans;
 
 public class filmlerDao {
@@ -21,6 +22,18 @@ public class filmlerDao {
             tumFilmlerArrayList.add(filmler);
         }
         return tumFilmlerArrayList;
+    }
+    public ArrayList<Koltuk> tumKoltuklar(sinemaDao vt){
+        ArrayList<Koltuk> tumKoltuklar=new ArrayList<>(); //bu listeye atıcaz verileri
+        SQLiteDatabase db=vt.getWritableDatabase(); // yazma yetkisi
+        Cursor c=db.rawQuery("Select * From koltuk",null); //satır satır filmleri getir
+
+        while (c.moveToNext()){// kaç satır veri geldiyse o kadar çalış
+            Koltuk koltuk=new Koltuk(c.getInt(c.getColumnIndex("koltuk_id")),c.getInt(c.getColumnIndex("salon_id")),c.getString(c.getColumnIndex("koltuk_harf")),c.getInt(c.getColumnIndex("koltuk_rakam")));
+
+            tumKoltuklar.add(koltuk);
+        }
+        return tumKoltuklar;
     }
 
     public ArrayList<Seans> filmSeansi(sinemaDao vt,int filmid){
@@ -37,5 +50,8 @@ public class filmlerDao {
         }
         return seanslarArray;
     }
+
+
+
 
 }

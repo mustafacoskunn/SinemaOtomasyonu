@@ -1,6 +1,8 @@
 package ornek.uygulama.com.sinemaotomation.objects;
 
-public class Seans {
+import java.io.Serializable;
+
+public class Seans implements Serializable {
     private int seans_id;
     private String seans_saati;
     private String salon_adi;

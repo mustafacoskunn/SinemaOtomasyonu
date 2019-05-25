@@ -4,58 +4,61 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-import ornek.uygulama.com.sinemaotomation.adapter.FilmlerAdapter;
+import ornek.uygulama.com.sinemaotomation.adapter.koltukAdapter;
 import ornek.uygulama.com.sinemaotomation.adapter.seansAdapter;
 import ornek.uygulama.com.sinemaotomation.dao.DatabaseCopyHelper;
 import ornek.uygulama.com.sinemaotomation.dao.filmlerDao;
 import ornek.uygulama.com.sinemaotomation.dao.sinemaDao;
 import ornek.uygulama.com.sinemaotomation.objects.Filmler;
+import ornek.uygulama.com.sinemaotomation.objects.Koltuk;
 import ornek.uygulama.com.sinemaotomation.objects.Seans;
 
-public class seansActivity extends AppCompatActivity {
+public class koltukSecim extends AppCompatActivity {
+
+
 
     private Filmler filmler;
-    TextView textView;
-    private ArrayList SeansArray;
+
+    private ArrayList KoltukArray;
     private sinemaDao vt;
-    private seansAdapter seansAdapter;
+    private koltukAdapter koltukAdapter;
     RecyclerView recyclerView;
-    private Seans seans;
+    private Koltuk koltuk;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seans);
+        setContentView(R.layout.activity_koltuk_secim);
 
 
-        recyclerView=findViewById(R.id.recyclerView2);
+
+        recyclerView=findViewById(R.id.rv);
         filmler= (Filmler) getIntent().getSerializableExtra("filmbilgi");
 
         recyclerView.setHasFixedSize(true); //ekran döndürmede bozulma
-        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(4,StaggeredGridLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(5,StaggeredGridLayoutManager.VERTICAL));
         veritabaniKopyala();
 
         vt =  new sinemaDao(this);
 
 
-       SeansArray =new filmlerDao().filmSeansi(vt,filmler.getFilm_id());
+        KoltukArray =new filmlerDao().tumKoltuklar(vt);
 
 
 
 
-        seansAdapter=new seansAdapter(this,SeansArray);
-        recyclerView.setAdapter(seansAdapter);
+        koltukAdapter=new koltukAdapter(this,KoltukArray);
+        recyclerView.setAdapter(koltukAdapter);
 
-        seans= (Seans) getIntent().getSerializableExtra("seans");
-
-
+        koltuk= (Koltuk) getIntent().getSerializableExtra("koltuk");
     }
-
 
     public void veritabaniKopyala(){ //hazır
 

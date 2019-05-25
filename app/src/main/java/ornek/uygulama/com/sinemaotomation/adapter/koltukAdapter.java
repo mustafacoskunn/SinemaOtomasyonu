@@ -15,64 +15,55 @@ import android.widget.TextView;
 import java.util.List;
 
 import ornek.uygulama.com.sinemaotomation.R;
-import ornek.uygulama.com.sinemaotomation.koltukSecim;
+import ornek.uygulama.com.sinemaotomation.objects.Koltuk;
 import ornek.uygulama.com.sinemaotomation.objects.Seans;
 import ornek.uygulama.com.sinemaotomation.seansActivity;
 
 
 
-public class seansAdapter extends RecyclerView.Adapter<seansAdapter.CardTasarimTutucu> {
+public class koltukAdapter extends RecyclerView.Adapter<koltukAdapter.CardTasarimTutucu> {
     private Context mContext;
-    private List<Seans> seansListe;
+    private List<Koltuk> koltukList;
 
-    public seansAdapter(Context mContext, List<Seans> seansListe) {
+    public koltukAdapter(Context mContext, List<Koltuk> koltukList) {
         this.mContext = mContext;
-        this.seansListe = seansListe;
+        this.koltukList = koltukList;
     }
 
     public class CardTasarimTutucu extends RecyclerView.ViewHolder{
         private CardView cardView;
-        private Button button;
-        private TextView salonAdi;
+        private Button koltuk;
+
 
         public CardTasarimTutucu(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.cardView);
-            button = itemView.findViewById(R.id.koltuk);
-            salonAdi=itemView.findViewById(R.id.salonAdi);
+            koltuk = itemView.findViewById(R.id.koltuk);
+
 
         }
     }
 
     @Override
     public CardTasarimTutucu onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_seanscardtasarim,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.koltukcardiviewtasarim,parent,false);
         return new CardTasarimTutucu(view);
     }
 
     @Override
     public void onBindViewHolder(CardTasarimTutucu holder, int position) {
 
-        final Seans seans = seansListe.get(position);
-        holder.button.setText(seans.getSeans_saati());
-        holder.salonAdi.setText(seans.getSalon_adi());
+         Koltuk koltukk = koltukList.get(position);
+        holder.koltuk.setText(String.valueOf(koltukk.getKoltuk_rakam()));
 
-        holder.button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent1=new Intent(mContext, koltukSecim.class);
-                mContext.startActivity(intent1);
-            }
-        });
-        Intent intent=new Intent(mContext, seansActivity.class);
-        intent.putExtra("seans",  seans);
+
 
 
     }
 
     @Override
     public int getItemCount() {
-        return seansListe.size();
+        return koltukList.size();
     }
 
 
