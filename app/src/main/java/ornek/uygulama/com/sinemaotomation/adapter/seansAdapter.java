@@ -50,22 +50,28 @@ public class seansAdapter extends RecyclerView.Adapter<seansAdapter.CardTasarimT
         return new CardTasarimTutucu(view);
     }
 
+
     @Override
     public void onBindViewHolder(CardTasarimTutucu holder, int position) {
 
-        final Seans seans = seansListe.get(position);
-        holder.button.setText(seans.getSeans_saati());
-        holder.salonAdi.setText(seans.getSalon_adi());
+        final Seans seans1 = seansListe.get(position);
+        holder.button.setText(seans1.getSeans_saati());
+        holder.salonAdi.setText(seans1.getSalon_adi());
+
+        System.out.println("deneme"+seans1.getSalon_id());
+
 
         holder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent1=new Intent(mContext, koltukSecim.class);
+                intent1.putExtra("seans",  seans1);
+
                 mContext.startActivity(intent1);
             }
         });
         Intent intent=new Intent(mContext, seansActivity.class);
-        intent.putExtra("seans",  seans);
+        intent.putExtra("seans",  seans1);
 
 
     }

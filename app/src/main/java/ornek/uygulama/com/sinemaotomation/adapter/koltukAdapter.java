@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import ornek.uygulama.com.sinemaotomation.R;
+import ornek.uygulama.com.sinemaotomation.biletActivity;
 import ornek.uygulama.com.sinemaotomation.objects.Koltuk;
 import ornek.uygulama.com.sinemaotomation.objects.Seans;
 import ornek.uygulama.com.sinemaotomation.seansActivity;
@@ -51,10 +52,18 @@ public class koltukAdapter extends RecyclerView.Adapter<koltukAdapter.CardTasari
     }
 
     @Override
-    public void onBindViewHolder(CardTasarimTutucu holder, int position) {
+    public void onBindViewHolder(final CardTasarimTutucu holder, int position) {
 
-         Koltuk koltukk = koltukList.get(position);
+         final Koltuk koltukk = koltukList.get(position);
         holder.koltuk.setText(String.valueOf(koltukk.getKoltuk_rakam()));
+        holder.koltuk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(mContext, biletActivity.class);
+                intent.putExtra("biletbilgi",koltukk);
+                mContext.startActivity(intent);
+            }
+        });
 
 
 

@@ -3,6 +3,7 @@
     package="ornek.uygulama.com.sinemaotomation">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".koltukSecim"></activity>
+        <activity android:name=".biletActivity"></activity>
+        <activity android:name=".koltukSecim" />
         <activity android:name=".yoneticiSayfasi" />
         <activity android:name=".girisSayfasi" />
         <activity android:name=".seanscardtasarim" />

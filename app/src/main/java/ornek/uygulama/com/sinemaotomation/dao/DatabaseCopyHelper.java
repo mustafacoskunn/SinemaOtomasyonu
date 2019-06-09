@@ -68,6 +68,11 @@ public class DatabaseCopyHelper extends SQLiteOpenHelper  {
      * Check if the database already exist to avoid re-copying the file each time you open the application.
      * @return true if it exists, false if it doesn't
      */
+	@Override
+	public void onOpen(SQLiteDatabase db) {
+		super.onOpen(db);
+		db.disableWriteAheadLogging();
+	}
     private boolean checkDataBase(){
  
     	SQLiteDatabase checkDB = null;

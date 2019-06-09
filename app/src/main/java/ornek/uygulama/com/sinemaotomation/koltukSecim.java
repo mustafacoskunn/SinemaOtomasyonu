@@ -30,8 +30,9 @@ public class koltukSecim extends AppCompatActivity {
     private koltukAdapter koltukAdapter;
     RecyclerView recyclerView;
     private Koltuk koltuk;
-
-
+    private Seans seans;
+    public static String seansSaat,salonAdi;
+    public static String filmresim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,7 +58,13 @@ public class koltukSecim extends AppCompatActivity {
         koltukAdapter=new koltukAdapter(this,KoltukArray);
         recyclerView.setAdapter(koltukAdapter);
 
-        koltuk= (Koltuk) getIntent().getSerializableExtra("koltuk");
+
+        seans= (Seans) getIntent().getSerializableExtra("seans");
+        seansSaat=seans.getSeans_saati();
+        salonAdi=seans.getSalon_adi();
+
+
+        System.out.println("Denemesalon"+seans.getSalon_id());
     }
 
     public void veritabaniKopyala(){ //hazır

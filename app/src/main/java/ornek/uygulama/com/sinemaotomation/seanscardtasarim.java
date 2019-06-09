@@ -42,7 +42,7 @@ public class seanscardtasarim extends AppCompatActivity {
 
         while (c.moveToNext()){// kaç satır veri geldiyse o kadar çalış
 
-            Seans seans=new Seans(c.getInt(c.getColumnIndex("seans_id")),c.getString(c.getColumnIndex("seans_saati")),c.getString(c.getColumnIndex("salon_adi")));
+            Seans seans=new Seans(c.getInt(c.getColumnIndex("seans_id")),c.getString(c.getColumnIndex("seans_saati")),c.getString(c.getColumnIndex("salon_adi")),c.getInt(c.getColumnIndex("salon_id")));
 
             System.out.println("girdi");
             textView.setText(seans.getSalon_adi());

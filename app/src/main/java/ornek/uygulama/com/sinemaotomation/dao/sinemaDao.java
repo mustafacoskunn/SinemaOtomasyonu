@@ -11,6 +11,11 @@ public class sinemaDao extends SQLiteOpenHelper {
     }
 
     @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        db.disableWriteAheadLogging();
+    }
+    @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS\"bilet\" (\n" +
                 "\t\"bilet_id\"\tvarchar(50) NOT NULL,\n" +
@@ -42,11 +47,10 @@ public class sinemaDao extends SQLiteOpenHelper {
                 "\t\"koltuk_rakam\"\tint(3) DEFAULT NULL,\n" +
                 "\tPRIMARY KEY(\"koltuk_id\")\n" +
                 ");");
-        db.execSQL("CREATE TABLE IF NOT EXISTS\"salon\" (\n" +
-                "\t\"salon_id\"\tint(11) NOT NULL,\n" +
+        db.execSQL("CREATE TABLE IF NOT EXISTS \"salon\" (\n" +
+                "\t\"salon_id\"\tINTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,\n" +
                 "\t\"salon_adi\"\tvarchar(50) NOT NULL,\n" +
                 "\t\"film_id\"\tint(11) NOT NULL,\n" +
-                "\tPRIMARY KEY(\"salon_id\"),\n" +
                 "\tCONSTRAINT \"film_id_for\" FOREIGN KEY(\"film_id\") REFERENCES \"filmler\"(\"film_id\")\n" +
                 ");");
         db.execSQL("CREATE TABLE IF NOT EXISTS\"salon_seans\" (\n" +

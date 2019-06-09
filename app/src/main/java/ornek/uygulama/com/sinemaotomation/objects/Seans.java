@@ -6,14 +6,15 @@ public class Seans implements Serializable {
     private int seans_id;
     private String seans_saati;
     private String salon_adi;
-
+    private int salon_id;
     public Seans() {
     }
 
-    public Seans(int seans_id, String seans_saati, String salon_adi) {
+    public Seans(int seans_id, String seans_saati, String salon_adi, int salon_id) {
         this.seans_id = seans_id;
         this.seans_saati = seans_saati;
         this.salon_adi = salon_adi;
+        this.salon_id = salon_id;
     }
 
     public int getSeans_id() {
@@ -38,5 +39,13 @@ public class Seans implements Serializable {
 
     public void setSalon_adi(String salon_adi) {
         this.salon_adi = salon_adi;
+    }
+
+    public int getSalon_id() {
+        return salon_id;
+    }
+
+    public void setSalon_id(int salon_id) {
+        this.salon_id = salon_id;
     }
 }

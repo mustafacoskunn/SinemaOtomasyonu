@@ -1,6 +1,8 @@
 package ornek.uygulama.com.sinemaotomation.objects;
 
-public class Koltuk {
+import java.io.Serializable;
+
+public class Koltuk implements Serializable {
     private int koltuk_id;
     private int salon_id;
     private String koltuk_harf;

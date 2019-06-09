@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".biletActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+android:layout_marginTop="5dp"
+android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/alert_dark_frame"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:layout_marginTop="5dp"
+
+            android:layout_below="@+id/imageView"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="152dp" />
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:layout_marginTop="5dp"
+
+            android:layout_below="@+id/t1"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="203dp" />
+
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="TextView"
+            android:layout_marginTop="5dp"
+
+            android:layout_below="@+id/t2"
+            tools:layout_editor_absoluteX="161dp"
+            tools:layout_editor_absoluteY="254dp" />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/t3"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:text="Bilet Bas"
+            tools:layout_editor_absoluteX="144dp"
+            tools:layout_editor_absoluteY="341dp" />
+    </RelativeLayout>
+
+</LinearLayout>
